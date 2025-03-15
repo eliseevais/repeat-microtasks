@@ -1,40 +1,49 @@
 import './App.css';
-import {Button} from "./components/button";
-
-export type TopCarsType = TopCarType[];
-
-export type TopCarType = {
-  manufacturer: string
-  model: string
-}
+import {useState} from "react";
+import {Input} from "./components/sprint01_week02/Input";
+import {ButtonForInput} from "./components/sprint01_week02/ButtonForInput";
 
 function App() {
+  const [message, setMessage] = useState([
+      {message: 'message1'},
+      {message: 'message2'},
+      {message: 'message3'},
+      {message: 'message4'},
+      {message: 'message5'}
+    ]
+  )
 
-  // const topCars: TopCarsType = [
-  //   {manufacturer: 'BMW', model: 'm5cs'},
-  //   {manufacturer: 'Mercedes', model: 'e63s'},
-  //   {manufacturer: 'Audi', model: 'rs6'}
-  // ]
+  let [title, setTitle] = useState('');
 
-  const foo1 = (subscriber: string, age: number) => {
-    console.log("subscriber", subscriber, "age", age)
-  }
-  const foo2 = (subscriber: string) => {
-    console.log("2", subscriber)
-  }
-  const foo3 = (subscriber: string) => {
-    console.log("3", subscriber)
-  }
-  const foo4 = () => {
-    console.log("I am stupid button")
+  // const addMessage = (title: string) => {
+  //   const newMessage = {
+  //     message: title
+  //   }
+  //   setMessage([newMessage, ...message])
+  // }
+
+  const callbackButtonForInputHandler = () => {
+    const newMessage = {
+      message: title
+    }
+    setMessage([newMessage, ...message]);
+    setTitle('');
   }
 
   return (
     <div className="App">
-      <Button name={"MyYouTubeChanel-1"} callBack={() =>foo1("I am button-1", 21)}/>
-      <Button name={"MyYouTubeChanel-2"} callBack={() => foo2("I am button-3")}/>
-      <Button name={"Hello"} callBack={() => foo3("I am button-3")}/>
-      <Button name={"Stupid button"} callBack={foo4}/>
+      {/*<FullInput addMessage={addMessage}/>*/}
+
+      <div>
+        <Input title={title} setTitle={setTitle}/>
+        <ButtonForInput title={"+"} callback={callbackButtonForInputHandler}/>
+      </div>
+
+      {message.map((el, index) => {
+        return (
+          <div key={index}>{el.message}</div>
+        )
+      })}
     </div>
   );
 }

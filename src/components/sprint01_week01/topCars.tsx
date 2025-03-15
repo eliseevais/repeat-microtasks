@@ -1,4 +1,9 @@
-import {TopCarType} from "../App";
+export type TopCarsType = TopCarType[];
+
+export type TopCarType = {
+  manufacturer: string
+  model: string
+}
 
 type TopCarsPropsType = {
   cars: TopCarType[]
