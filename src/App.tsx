@@ -15,13 +15,40 @@ function App() {
       <div className={styles.body}>
         <div className={styles.nav}>
           <div>
-            <NavLink to="/page1">PAGE 1</NavLink>
+            <NavLink
+              to="/page1"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.navLink} ${styles.activeNavLink}`
+                  : styles.navLink
+              }
+            >
+              Page 1
+            </NavLink>
           </div>
           <div>
-            <NavLink to="/page2">PAGE 2</NavLink>
+            <NavLink
+              to="/page2"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.navLink} ${styles.activeNavLink}`
+                  : styles.navLink
+              }
+            >
+              Page 2
+            </NavLink>
           </div>
           <div>
-            <NavLink to="/page3">PAGE 3</NavLink>
+            <NavLink
+              to="/page3"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.navLink} ${styles.activeNavLink}`
+                  : styles.navLink
+              }
+            >
+              Page 3
+            </NavLink>
           </div>
         </div>
 
