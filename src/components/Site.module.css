@@ -43,3 +43,28 @@
   color: #7fb8f1;
   text-decoration: underline;
 }
+
+.imgBlock {
+  display: flex;
+  justify-content: center;
+}
+
+.imgModel {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+}
+
+.pageForModel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 500px;
+    height: 500px;
+    margin-bottom: 40px;
+  }
+}

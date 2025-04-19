@@ -1,9 +1,59 @@
 import React from "react";
+import { Link } from "react-router";
+import adidasModel1 from "../../assets/adidas1.webp";
+import adidasModel2 from "../../assets/adidas2.webp";
+import adidasModel3 from "../../assets/adidas3.webp";
+import s from "../Site.module.css";
 
-export const PageTwo = () => {
+export type ShoeItem = {
+  model: string;
+  collection: string;
+  price: string;
+  picture: string;
+  id: number;
+};
+
+export const adidasArr: ShoeItem[] = [
+  {
+    model: "ADIDAS ADIFOM TRXN",
+    collection: "new collection1",
+    price: "100200$",
+    picture: adidasModel1,
+    id: 1,
+  },
+  {
+    model: "ADIDAS ADIFOM SUPER",
+    collection: "new collection22",
+    price: "200300$",
+    picture: adidasModel2,
+    id: 2,
+  },
+  {
+    model: "ADIDAS SUPER SUPERSKI",
+    collection: "new collection333",
+    price: "300400$",
+    picture: adidasModel3,
+    id: 3,
+  },
+];
+
+export const Adidas = () => {
   return (
     <div>
-      <h2>PUMA</h2>
+      <h2> ADIDAS</h2>
+      <div className={s.imgBlock}>
+        {adidasArr.map((el) => {
+          return (
+            <Link key={el.id} to={`/adidas/${el.id}`}>
+              <img
+                src={el.picture}
+                alt={el.collection}
+                className={s.imgModel}
+              />
+            </Link>
+          );
+        })}
+      </div>
       <p>
         What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
         and typesetting industry. Lorem Ipsum has been the industry's standard
